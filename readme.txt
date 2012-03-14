@@ -29,8 +29,8 @@ http://hackshackers.com/chapters/new-york/holidayfete/
 = 1.0 =
 * Initial release
 
-= Frequently Asked Questions =
+== Frequently Asked Questions ==
 
-== Will it still work with caching plugins? ==
+= Will it still work with caching plugins? =
 
 It should. 

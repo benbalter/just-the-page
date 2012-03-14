@@ -12,7 +12,7 @@ Displays page content with no additional formatting (e.g., no header, footer, et
 
 Displays page content with no additional formatting (e.g., no header, footer, etc.). Useful for publishing stand-alone HTML (such as invitations) without FTP access.
 
-=== Usage ===
+= Usage =
 
 1. Create a new page as you would normally
 2. Click the "display page content only" toggle on
@@ -20,7 +20,7 @@ Displays page content with no additional formatting (e.g., no header, footer, et
 
 Any user who visits the page will be served only the page content with no header or footer
 
-=== Example ===
+= Example =
 
 http://hackshackers.com/chapters/new-york/holidayfete/
 

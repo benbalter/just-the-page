@@ -24,6 +24,8 @@ Any user who visits the page will be served only the page content with no header
 
 http://hackshackers.com/chapters/new-york/holidayfete/
 
+Special thanks to [Jennifer 8. Lee](http://www.jennifer8lee.com/).
+
 == Changelog ==
 
 = 1.0 =

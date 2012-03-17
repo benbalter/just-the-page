@@ -13,15 +13,17 @@ class Just_The_Page {
 
 	public $meta_key = 'just_the_page'; //key to store plugin's toggle for a given page (bool)
 
-	function __construct() {
-		add_action('template_redirect', array( &$this, 'template_filter' ) );
+	function __construct() { 
+		add_action( 'template_redirect', array( &$this, 'template_filter' ) );
+		add_action( 'add_meta_boxes', array( &$this, 'register_metabox' ) );
+		add_action( 'save_post', array( &$this, 'metabox_save' ) );
 	}
 
 	/**
 	 * Hook to check for meta and call template filter
 	 */
 	function template_filter() {
-	
+
 		//if not a page or single post, kick
 		if ( !is_single() && !is_page() )
 			return;
@@ -32,7 +34,7 @@ class Just_The_Page {
 	
 		//Look for a "no_formatting" page meta
 		$toggle = get_post_meta( $post_id, $this->meta_key, true );
-	
+
 		//if the meta is set, call our template filter
 		if ( !$toggle )
 			return;
@@ -46,7 +48,7 @@ class Just_The_Page {
 	 * Callback to replace the current template with our blank template
 	 * @return string the path to the plugin's template.php
 	 */
-	function template_callback() {
+	function template_callback( $template ) {
 		return dirname(__FILE__) . '/template.php';
 	}
 	
@@ -64,7 +66,7 @@ class Just_The_Page {
 		wp_nonce_field( 'just-the-page', '_jtp_nonce' )
 	?>
 		<p>
-			<input type="checkbox" name="just_the_page" id="just_the_page" <?php checked( get_post_meta( $post->ID, $this->meta, true ) ); ?>/><label for="just_the_page"><?php _e( 'Display only page content', 'just-the-page' ); ?></label><br />
+			<input type="checkbox" name="just_the_page" id="just_the_page" <?php checked( get_post_meta( $post->ID, $this->meta_key, true ) ); ?>/><label for="just_the_page"> <?php _e( 'Display only page content', 'just-the-page' ); ?></label><br />
 			<span class="description"><?php _e( '<em>e.g.,</em> hide page header, footer, etc.', 'just-the-page' ); ?></span>
 		</p>
 	<?php
